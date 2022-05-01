@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/addAct/static/css/main.5341b16c.css",
+    "main.js": "/addAct/static/js/main.c5d9f912.js",
+    "index.html": "/addAct/index.html",
+    "main.5341b16c.css.map": "/addAct/static/css/main.5341b16c.css.map",
+    "main.c5d9f912.js.map": "/addAct/static/js/main.c5d9f912.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5341b16c.css",
+    "static/js/main.c5d9f912.js"
+  ]
+}
