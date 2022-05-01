@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import Movie from './Movies.js';
+import MovieForm from './MovieForm.js';
 
 function App() {
+  const [movies, setMovies] = useState([]);
+  const removeMovie = (id)=> {
+    setMovies(movies.filter(movie =>{
+      return movie.id !== id;
+    }));
+    const title = localStorage.key(id);
+    localStorage.removeItem(id);
+  };
+  const renderMovies = movies.length ? movies.map(
+    movie => {
+      return (
+        <Movie
+        movie={movie}
+        key={movie.id}
+        removeMovie={removeMovie}
+        ></Movie>
+      )
+    }
+  ) : '영화를 추가해 주세요';
+  const addMovie = (movie)=>{
+    setMovies([
+      ...movies,movie]);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Movies</h1>
+        {renderMovies}
+        <MovieForm addMovie={addMovie}/>
     </div>
   );
 }
