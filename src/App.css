@@ -1,5 +1,48 @@
+*{
+  padding:0;
+  margin:0;
+}
+img{
+  width:100%;
+}
+
 .App{
   padding:0 1rem 1rem;
+}
+/* header */
+header{
+  height:3rem;
+  border-bottom:1px solid #ccc;
+}
+h1.logo{
+  float:left;
+}
+.nav{
+display:flex;
+justify-content:space-around;
+justify-items: center;
+vertical-align: middle;
+line-height: .5rem;
+list-style-type: none;
+padding-top:1rem;
+}
+.nav>li{
+  padding-bottom:6px;
+}
+a{
+  text-decoration: none;
+  color:inherit;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.active{
+  color:#289828;
+}
+/* container */
+.container{
+  width:30%;
+  margin:3rem auto;
 }
 .movie{
   display:flex;
@@ -29,7 +72,20 @@ button{
   border-width: 1px 2px 2px 1px;
   border-color: #ccc;
   border-style: solid;
+  margin-top: 1rem;
 }
 button:active{
   border-width: 2px 1px 1px 2px;
+}
+p.input{
+  padding-top:.5rem;
+}
+
+/* users */
+.user{
+  width:80%;
+  margin:0 auto 1rem;
+  padding:1rem;
+  border:1px solid #ccc;
+  border-radius: 5px;
 }

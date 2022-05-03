@@ -1,10 +1,11 @@
 import React ,{useState} from "react";
+import InputField from "./inputField";
 
 const MovieForm = ({addMovie}) => {
     const [movieTitle, setMovieTitle] = useState('');
     const [movieYear, setMovieYear] = useState('');
-    const [titleError, setTitleError] = useState('');
-    const [yearError, setYearError] = useState('');
+    const [titleError, setTitleError] = useState('영화제목을 넣어주세요');
+    const [yearError, setYearError] = useState('개봉연도를 넣어주세요');
     const [nextId, setNextId] = useState(0);
     const resetForm = () => {
       setNextId(nextId+1);
@@ -12,7 +13,7 @@ const MovieForm = ({addMovie}) => {
       setMovieYear('');
     }
     const validataForm = ()=> {
-        resetError();
+        // resetError();
         let validated = true;
         if(!movieTitle){
             setTitleError('영화제목을 넣어주세요');
@@ -45,12 +46,18 @@ const MovieForm = ({addMovie}) => {
  
     return (
           <form onSubmit={onSubmit}>
-           <p> <input type="text" placeholder='영화제목'
-            onChange={e => setMovieTitle(e.target.value)}
-            value={movieTitle}/></p>
-            <p><input type="number" placeholder='개봉년도'
-            onChange={e => setMovieYear(e.target.value)}
-            value={movieYear}/></p>
+            <InputField
+              type="text"
+              value={movieTitle}
+              placeholder="영화제목"
+              onChange={e => setMovieTitle(e.target.value)}
+            ></InputField>
+            <InputField
+              type="number"
+              value={movieYear}
+              placeholder="개봉년도"
+              onChange={e => setMovieYear(e.target.value)}
+            ></InputField>
             <p><button type='submit'>영화추가</button></p>
           </form>
     );

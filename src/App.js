@@ -2,6 +2,9 @@ import './App.css';
 import React, {useState} from 'react';
 import Movie from './Movies.js';
 import MovieForm from './MovieForm.js';
+import Header from './Header';
+import Users from './Users';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -28,11 +31,22 @@ function App() {
       ...movies,movie]);
   };
   return (
-    <div className="App">
-      <h1>Movies</h1>
-        {renderMovies}
-        <MovieForm addMovie={addMovie}/>
-    </div>
+    <Router>
+      <div className="App">
+      <Header title="Coding "></Header>
+        <Routes>
+          <Route path="/"></Route>
+          <Route path="/movie" element={
+            <div className="container">
+            {renderMovies}
+            <MovieForm addMovie={addMovie}/>
+            </div>
+          }>          
+          </Route>
+          <Route path="/users" element={ <Users></Users>}></Route>
+        </Routes>  
+      </div>
+    </Router>
   );
 }
 
